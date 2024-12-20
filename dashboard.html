@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - VicMC</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Bem-vindo(a) à Comunidade VicMC!</h1>
+        <nav>
+            <a href="index.html">Página Inicial</a>
+            <a href="#" id="logout">Sair</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Explore o Museu</h2>
+        <p>Acesse conteúdos exclusivos disponíveis apenas para membros registrados.</p>
+        <button id="addButton" class="floating-button">+</button>
+
+        <!-- Modal de Adicionar -->
+        <div id="addModal" class="modal">
+            <div class="modal-content">
+                <span id="closeModal" class="close">&times;</span>
+                <h2>Adicionar Nova Exposição</h2>
+                <form id="addForm">
+                    <label for="title">Título:</label>
+                    <input type="text" id="title" name="title" required>
+                    
+                    <label for="description">Descrição:</label>
+                    <textarea id="description" name="description" required></textarea>
+                    
+                    <button type="submit">Adicionar</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <script>
+        // Modal
+        const modal = document.getElementById('addModal');
+        const addButton = document.getElementById('addButton');
+        const closeModal = document.getElementById('closeModal');
+    
+        addButton.onclick = function() {
+            modal.style.display = 'block';
+        };
+    
+        closeModal.onclick = function() {
+            modal.style.display = 'none';
+        };
+    
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        };
+    
+        // Logout
+        document.getElementById('logout').addEventListener('click', () => {
+            alert('Você saiu com sucesso. Até breve!');
+            window.location.href = 'login.html';
+        });
+    </script>
+    
+</body>
+</html>
